@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+<html>
+<head>
+</head>
+<body>
+  <div class="container">
+    <h1>Sélectionnez un personnage</h1>
+    <div id="characters">
+      <!-- Les personnages seront ajoutés ici en JavaScript -->
+    </div>
+    <div id="maps">
+        <!-- Les personnages seront ajoutés ici en JavaScript -->
+         </div>
+    <p id="selected-character"></p>
+    <p id="selected-map"></p>
+    
+    <a href="index1.html">
+      
+      <input type="button"  value="Commencer le jeu" style="width: 20vw; height:10vh; font-size:large;
+         border:10px solid black;"/></a>
+  </div>
+
+  
+  <script>
+    const characters = [
+      { name: "Samuel", image: "https://img.itch.zone/aW1hZ2UvNjU4NzA0LzM1NDUxNDYuZ2lm/original/aHoV98.gif" },
+      { name: "Keran", image: "https://img.itch.zone/aW1hZ2UvNzI2NzQzLzQwMzc0NjMuZ2lm/original/Iu%2FA0O.gif" },
+      { name: "Ethan", image: "ethan.png" },
+      { name: "Lonis", image: "lonis.png" }
+    ];
+    const charactersElement = document.getElementById("characters");
+    const selectedCharacterElement = document.getElementById("selected-character");
+    
+    for (const character of characters) {
+      const characterItem = document.createElement("div");
+      characterItem.classList.add("character-item");
+      const characterImage = document.createElement("img");
+      characterImage.classList.add("character-image");
+      characterImage.src = character.image;
+      characterImage.alt = character.name;
+      characterItem.appendChild(characterImage);
+      characterItem.appendChild(document.createTextNode(character.name));
+      characterItem.addEventListener("click", function() {
+        const selectedItems = document.querySelectorAll(".selected");
+        for (const item of selectedItems) {
+          item.classList.remove("selected");
+        }
+        characterItem.classList.add("selected");
+        selectedCharacterElement.innerText = `Vous avez sélectionné ${character.name}.`;
+      });
+      charactersElement.appendChild(characterItem);
+      
+    }
+
+    const maps = [
+      { name: "Carte 1", image: "https://img.itch.zone/aW1hZ2UvNjU4NzA0LzM1NDUxNDYuZ2lm/original/aHoV98.gif" },
+      { name: "Carte 2", image: "https://img.itch.zone/aW1hZ2UvNzI2NzQzLzQwMzc0NjMuZ2lm/original/Iu%2FA0O.gif" },
+      { name: "Carte 3", image: "ethan.png" },
+      { name: "Carte 4", image: "lonis.png" }
+    ];
+    const mpasElement = document.getElementById("maps");
+    const selectedmapsElement = document.getElementById("selected-maps");
+    
+    for (const maps of maps) {
+      const mapsItem = document.createElement("div");
+      mapsItem.classList.add("maps-item");
+      const mapsImage = document.createElement("img");
+      mapsImage.classList.add("maps-image");
+      mapsImage.src = maps.image;
+      mapsImage.alt = maps.name;
+      mapsItem.appendChild(mapsImage);
+      mapsItem.appendChild(document.createTextNode(maps.name));
+      mapsItem.addEventListener("click", function() {
+        const selectedItems = document.querySelectorAll(".selected");
+        for (const item of selectedItems) {
+          item.classList.remove("selected");
+        }
+        mapsItem.classList.add("selected");
+        selectedmapsElement.innerText = `Vous avez sélectionné ${maps.name}.`;
+      });
+      mElement.appendChild(characterItem);
+    }
+  </script>
+  </script>
+
+  
+</body>
+</html>
